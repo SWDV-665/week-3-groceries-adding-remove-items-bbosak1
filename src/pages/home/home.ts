@@ -36,13 +36,13 @@ export class HomePage {
 
   }
 
-  removeItem(item) {
-    console.log("Removing Item - ", item);
+  removeItem(item, i) {
     const toast = this.toastCtrl.create({
       message: 'Removing Item - ' + item.name + " ...",
-      duration: 3000
+      duration: 2000
     });
     toast.present();
+    this.items.splice(i, 1);
   }
 
   addItem() {
@@ -73,7 +73,6 @@ export class HomePage {
         {
           text: 'Save',
           handler: item => {
-            console.log('Saved clicked', item);
             this.items.push(item);
           }
         }
